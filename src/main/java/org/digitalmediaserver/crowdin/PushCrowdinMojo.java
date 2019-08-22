@@ -171,13 +171,12 @@ public class PushCrowdinMojo extends AbstractCrowdinMojo {
 				Map<String, String> titleMap = new HashMap<String, String>();
 				Map<String, String> patternMap = new HashMap<String, String>();
 
-				String pushName = isBlank(fileSet.getCrowdinPath()) ?
-					fileSet.getBaseFileName() :
-					formatPath(fileSet.getCrowdinPath(), true) + fileSet.getBaseFileName();
+				String pushName = isBlank(fileSet.getCrowdinPath()) ? "" : formatPath(fileSet.getCrowdinPath(), true);
+				pushName += isBlank(fileSet.getTargetFileName()) ? fileSet.getBaseFileName() : fileSet.getUploadedFileName();
 				boolean update = containsFile(filesElement, pushName, getLog());
 
 				try {
-					String pushFileName = isBlank(fileSet.getTargetFileName()) ? pushFile.getFileName().toString() : fileSet.getTargetFileName();
+					String pushFileName = isBlank(fileSet.getTargetFileName()) ? pushFile.getFileName().toString() : fileSet.getUploadedFileName();
 					fileMap.put(
 						pushName,
 						fileSet.getType() == FileType.nsh ?

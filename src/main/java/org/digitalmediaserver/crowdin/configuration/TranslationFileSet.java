@@ -247,6 +247,14 @@ public class TranslationFileSet extends AbstractFileSet {
 	}
 
 	/**
+	 * @return The uploaded filename.
+	 */
+	public String getUploadedFileName() {
+		return uploadedFileName;
+	}
+
+
+	/**
 	 * @return The title.
 	 */
 	public String getTitle() {
