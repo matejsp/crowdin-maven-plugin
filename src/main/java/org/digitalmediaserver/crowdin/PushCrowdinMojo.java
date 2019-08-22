@@ -102,11 +102,11 @@ public class PushCrowdinMojo extends AbstractCrowdinMojo {
 			throw new MojoExecutionException("Push is not confirmed - aborting!");
 		}
 
-		if (!project.getName().equals(projectName)) {
-			throw new MojoExecutionException(
-				"POM name (" + project.getName() + ") differs from \"projectName\" parameter (" + projectName + ") - push aborted!"
-			);
-		}
+		//if (!project.getName().equals(projectName)) {
+		//	throw new MojoExecutionException(
+		//		"POM name (" + project.getName() + ") differs from \"projectName\" parameter (" + projectName + ") - push aborted!"
+		//	);
+		//}
 
 		initializeParameters();
 		initializeServer();
