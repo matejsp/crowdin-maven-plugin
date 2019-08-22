@@ -65,6 +65,14 @@ public class TranslationFileSet extends AbstractFileSet {
 	protected String baseFileName;
 
 	/**
+	 * The base language file that should be uploaded to Crowdin.
+	 *
+	 * @parameter
+	 * @required
+	 */
+	protected String uploadedFileName;
+
+	/**
 	 * The title as it should appear to translators at Crowdin.
 	 *
 	 * @parameter

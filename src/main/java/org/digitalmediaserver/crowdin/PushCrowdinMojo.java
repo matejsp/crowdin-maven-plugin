@@ -177,14 +177,14 @@ public class PushCrowdinMojo extends AbstractCrowdinMojo {
 				boolean update = containsFile(filesElement, pushName, getLog());
 
 				try {
-					Path pushFileName = pushFile.getFileName();
+					String pushFileName = isBlank(fileSet.getTargetFileName()) ? pushFile.getFileName().toString() : fileSet.getTargetFileName();
 					fileMap.put(
 						pushName,
 						fileSet.getType() == FileType.nsh ?
 							new InputStreamBody(
 								new NSISUtil.NSISInputStream(pushFile),
 								ContentType.DEFAULT_BINARY,
-								pushFileName == null ? null : pushFileName.toString()
+								pushFileName == null ? null : pushFileName
 							) :
 							new FileBody(pushFile.toFile())
 					);
